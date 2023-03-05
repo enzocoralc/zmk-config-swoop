@@ -74,6 +74,8 @@
 #define LAF4 &kp LA(F4)
 #define SCST &kp LG(LS(S))
 #define ENHE &kp RA(N)
+#define IEXC &kp RA(EXCL)
+#define IQMK &kp RA(QMARK)
 #define BT1 &bt BT_SEL 1
 #define BT2 &bt BT_SEL 2
 #define BT3 &bt BT_SEL 3
@@ -84,6 +86,13 @@
     keymap {
         compatible = "zmk,keymap";
 
+/*
+  W     C     G   RA(D)     K            Q     RA(L)   U     O     Y
+LG(R) LC(S) LS(T) LA(H)     B            J     LA(N) RS(E) RC(A) RG(I)
+  Z     F     M     P       V            X       ,     .     '     /
+             FUN   SPC     NUM          NAV     ENT   SYM
+*/
+
         default_layer {
             bindings = <
                 &kp W     &kp C     &kp G     LHM_RA_D  &kp K           &kp Q     RHM_RA_L  &kp U     &kp O     &kp Y
@@ -92,6 +101,13 @@
                                     &mo FUN_L &kp SPACE &mo NUM_L       &mo NAVE_L &kp ENTER &mo SYM_L
             >;
         };
+
+/*
+ ESC  HOME   ENT  LC(TAB)  PGUP         DEL     PLAY   VOL+   LA(F4)  INS
+ <-    UP    DN     ->     PGDN         BSPC    MUTE   VOL-   LC(F4)  SCST
+ TOP  END    TAB  LA(TAB)  BOTTOM       CLCK     ESC    TAB    ENT    ___ 
+             ___  NUM(DEL)  BSPC        ___   ___   ___
+*/
 
         navigation_layer {
             label = "Navigation";
@@ -103,6 +119,13 @@
             >;
         };
 
+/*
+ ___   ___   ___   ___     DEL           -       7       8       9       *
+ ___   ___   ___   ___     BSPC          +       4       5       6       /
+ ___   ESC   TAB   ENT     ___          CNUM     1       2       3      ___
+               ___   ___   ___           0     NAV(.)   ___
+*/
+
         number_layer {
             label = "Number";
             bindings = <
@@ -112,6 +135,13 @@
                                     &trans    &trans    &trans          &kp N0     LT_NV_DOT &trans
             >;
         };
+
+/*
+F11    F12    F13    F14    F15      BT1     BT2     BT3     BT4     BT5
+F6     F7     F8     F9     F10      DEL     CTL     ALT     ___     bootloader
+F1     F2     F3     F4     F5       ___     PLAY    <<       >>     BTCLEAR
+               ___   ___   ___       ___   ___   ___ 
+*/
 
         function_layer {
             label = "Function";
@@ -123,13 +153,20 @@
             >;
         };
 
+/*
+{     }     [     ]     +         `     -     _     \     |
+!     @     #     $     %         ^     :     ;     '     "
+&     *     (     )     =         ~     <     >     /     ?
+            ¡     ñ     ¿        ___   ___   ___ 
+*/
+
         symbol_layer {
             label = "Symbol";
             bindings = <
                 &kp LBRC  &kp RBRC  &kp LBKT  &kp RBKT  &kp PLUS        &kp TILDE &kp MINUS &kp UNDER &kp BSLH  &kp PIPE
-                &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT       ENHE      &kp COLON &kp SEMI  &kp APOS  &kp DQT
+                &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT       &kp CARET &kp COLON &kp SEMI  &kp APOS  &kp DQT
                 &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp EQUAL       &kp GRAVE &kp LT    &kp GT    &kp SLASH &kp QMARK
-                                    &trans    &trans    &trans          &trans    &trans    &trans
+                                    IEXC      ENHE      IQMK            &trans    &trans    &trans
             >;
         };
 
