@@ -53,7 +53,7 @@
         #binding-cells = <0>;
         compatible = "zmk,behavior-tap-dance";
         bindings = &mo NUM_L, &tog NUM_L;
-        tapping-term-ms = <tapterm>;
+        tapping-term-ms = <TAPPING_TERM>;
         };
     };
 };
