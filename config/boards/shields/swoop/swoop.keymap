@@ -108,7 +108,7 @@ LG(R)   LC(S)   LS(T)   LA(H)     B            J     LA(N)   RS(E)   RC(A)   RG(
                 &kp W     &kp C     &kp G     LHM_RA_D  &kp K           &kp Q     RHM_RA_L  &kp U     &kp O     &kp Y
                 LHM_LG_R  LHM_LC_S  LHM_LS_T  LHM_LA_H  &kp B           &kp J     RHM_LA_N  RHM_RS_E  RHM_RC_A  RHM_RG_I
                 &kp Z     &kp F     &kp M     &kp P     &kp V           &kp X     &kp COMMA &kp DOT   &kp APOS  &kp SLASH
-                                    &mo FUN_L &kp SPACE &num            &mo NAVE_L &kp ENTER &mo SYM_L
+                                    &mo FUN_L &kp SPACE &num            &mo NAV_L &kp ENTER &mo SYM_L
             >;
         };
 
