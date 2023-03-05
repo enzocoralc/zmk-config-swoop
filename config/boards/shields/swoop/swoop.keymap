@@ -21,7 +21,7 @@
 #define FUN_L 3
 #define SYM_L 4
 
-/* SETTINGS
+// SETTINGS
 #define TAPPING_TERM     180
 
 / {
