@@ -54,8 +54,8 @@
             compatible = "zmk,behavior-tap-dance";
             bindings = <&mo NUM_L>, <&tog NUM_L>;
             tapping-term-ms = <TAPPING_TERM>;
+        };
     };
-};
 };
 
 #define LHM_LG_R &lhm LGUI R
