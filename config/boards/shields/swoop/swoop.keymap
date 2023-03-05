@@ -1,0 +1,137 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ * SPDX-License-Identifier: MIT
+ *
+ * This is an APTex keymap for the Swoop keyboard.
+ * Last edited by James White, July 20, 2022.
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+&kscan0 {
+    debounce-press-ms = <10>;
+    debounce-release-ms = <10>;
+};
+
+#define DEF_L 0
+#define NAV_L 1
+#define NUM_L 2
+#define FUN_L 3
+#define SYM_L 4
+
+/ {
+    behaviors {
+        lhm: left_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <240>;
+            quick-tap-ms = <0>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 30 31 32 33 34 35>;
+            global-quick-tap;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        rhm: right_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RIGHT_HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <240>;
+            quick-tap-ms = <0>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32 33 34 35>;
+            global-quick-tap;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+};
+
+#define LHM_LG_R &lhm LGUI R
+#define LHM_LC_S &lhm LCTL S
+#define LHM_LS_T &lhm LSFT T
+#define LHM_LA_H &lhm LALT H
+#define LHM_RA_D &lhm RALT D
+#define RHM_RA_L &rhm RALT L
+#define RHM_LA_N &rhm LALT N
+#define RHM_RS_E &rhm RSFT E
+#define RHM_RC_A &rhm RCTL A
+#define RHM_RG_I &rhm RGUI I
+#define LT_NM_DEL &lt NUM_L DEL
+#define LT_NV_DOT &lt NAV_L DOT
+#define TOP &kp LC(HOME)
+#define BOTTOM &kp LC(END)
+#define MUTE &kp C_MUTE
+#define VOL_UP &kp C_VOLUME_DOWN
+#define VOL_DN &kp C_VOLUME_UP
+#define MEDIA_PP &kp C_PLAY_PAUSE
+#define MEDIA_PV &kp C_PREV
+#define MEDIA_NX &kp C_NEXT
+#define LCTAB &kp LC(TAB)
+#define LALTAB &kp LA(TAB)
+#define LCF4 &kp LC(F4)
+#define LAF4 &kp LA(F4)
+#define SCST &kp LG(LS(S))
+#define ENHE &kp RA(N)
+#define BT1 &bt BT_SEL 1
+#define BT2 &bt BT_SEL 2
+#define BT3 &bt BT_SEL 3
+#define BT4 &bt BT_SEL 4
+#define BT5 &bt BT_SEL 5
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                &kp W     &kp C     &kp G     LHM_RA_D  &kp K           &kp Q     RHM_RA_L  &kp U     &kp O     &kp Y
+                LHM_LG_R  LHM_LC_S  LHM_LS_T  LHM_LA_H  &kp B           &kp J     RHM_LA_N  RHM_RS_E  RHM_RC_A  RHM_RG_I
+                &kp Z     &kp F     &kp M     &kp P     &kp V           &kp X     &kp COMMA &kp DOT   &kp APOS  &kp SLASH
+                                    &mo FUN_L &kp SPACE &mo NUM_L       &mo NAVE_L &kp ENTER &mo SYM_L
+            >;
+        };
+
+        navigation_layer {
+            label = "Navigation";
+            bindings = <
+                &kp ESC   &kp HOME  &kp RET   LCTAB     &kp PG_UP       &kp DEL   &kp C_PP  VOL_UP    LAF4      &kp INS
+                &kp UARW  &kp UARW  &kp DARW  &kp RARW  &kp PG_DN       &kp BSPC  MUTE      VOL_DN    LCF4      SCST
+                TOP       &kp END   &kp TAB   LALTAB    BOTTOM          &kp CLCK  &kp ESC   &kp TAB   &kp RET   &trans
+                                    &trans    LT_NM_DEL &kp BSPC        &trans    &trans    &trans
+            >;
+        };
+
+        number_layer {
+            label = "Number";
+            bindings = <
+                &trans    &trans    &trans    &trans    &kp DEL         &kp MINUS  &kp N7    &kp N8    &kp N9    &kp ASTRK
+                &trans    &trans    &trans    &trans    &kp BSPC        &kp PLUS   &kp N4    &kp N5    &kp N6    &kp SLASH
+                &trans    &kp ESC   &kp TAB   &kp RET   &trans          &kp KP_NUM &kp N1    &kp N2    &kp N3    &trans
+                                    &trans    &trans    &trans          &kp N0     LT_NV_DOT &trans
+            >;
+        };
+
+        function_layer {
+            label = "Function";
+            bindings = <
+                &kp F11   &kp F12   &kp F13   &kp F14   &kp F15         BT1       BT2       BT3       BT4       BT5
+                &kp F6    &kp F7    &kp F8    &kp F9    &kp F10         &kp DEL   &kp LCTRL &kp LALT  &trans    &bootloader
+                &kp F1    &kp F2    &kp F3    &kp F4    &kp F5          &trans    MEDIA_PP  MEDIA_PV  MEDIA_NX  &bt BT_CLR
+                                    &trans    &trans    &trans          &trans    &trans    &trans
+            >;
+        };
+
+        symbol_layer {
+            label = "Symbol";
+            bindings = <
+                &kp LBRC  &kp RBRC  &kp LBKT  &kp RBKT  &kp PLUS        &kp TILDE &kp MINUS &kp UNDER &kp BSLH  &kp PIPE
+                &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT       ENHE      &kp COLON &kp SEMI  &kp APOS  &kp DQT
+                &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &kp EQUAL       &kp GRAVE &kp LT    &kp GT    &kp SLASH &kp QMARK
+                                    &trans    &trans    &trans          &trans    &trans    &trans
+            >;
+        };
+
+    };
+};

@@ -1,0 +1,2 @@
+board: [nrfmicro_13]
+shield: [swoop_left, swoop_right]
