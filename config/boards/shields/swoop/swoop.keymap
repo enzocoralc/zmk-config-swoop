@@ -21,6 +21,9 @@
 #define FUN_L 3
 #define SYM_L 4
 
+/* SETTINGS
+#define TAPPING_TERM     180
+
 / {
     behaviors {
         lhm: left_homerow_mods {
@@ -44,6 +47,13 @@
             global-quick-tap;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+        };
+        num: num {
+        label = "tap-dance-num";
+        #binding-cells = <0>;
+        compatible = "zmk,behavior-tap-dance";
+        bindings = &mo NUM_L, &tog NUM_L;
+        tapping-term-ms = <tapterm>;
         };
     };
 };
@@ -98,7 +108,7 @@ LG(R)   LC(S)   LS(T)   LA(H)     B            J     LA(N)   RS(E)   RC(A)   RG(
                 &kp W     &kp C     &kp G     LHM_RA_D  &kp K           &kp Q     RHM_RA_L  &kp U     &kp O     &kp Y
                 LHM_LG_R  LHM_LC_S  LHM_LS_T  LHM_LA_H  &kp B           &kp J     RHM_LA_N  RHM_RS_E  RHM_RC_A  RHM_RG_I
                 &kp Z     &kp F     &kp M     &kp P     &kp V           &kp X     &kp COMMA &kp DOT   &kp APOS  &kp SLASH
-                                    &mo FUN_L &kp SPACE &mo NUM_L       &mo NAVE_L &kp ENTER &mo SYM_L
+                                    &mo FUN_L &kp SPACE &num            &mo NAVE_L &kp ENTER &mo SYM_L
             >;
         };
 
@@ -123,7 +133,7 @@ LG(R)   LC(S)   LS(T)   LA(H)     B            J     LA(N)   RS(E)   RC(A)   RG(
  ___    ___    ___    ___    DEL           -       7       8       9       *
  ___    ___    ___    ___    BSPC          +       4       5       6       /
  ___    ESC    TAB    ENT    ___          CNUM     1       2       3      ___
-               ___    ___    ___           0     NAV(.)   ___
+               ___    ___    ___           0     NAV(.)   DEF
 */
 
         number_layer {
@@ -132,7 +142,7 @@ LG(R)   LC(S)   LS(T)   LA(H)     B            J     LA(N)   RS(E)   RC(A)   RG(
                 &trans    &trans    &trans    &trans    &kp DEL         &kp MINUS  &kp N7    &kp N8    &kp N9    &kp ASTRK
                 &trans    &trans    &trans    &trans    &kp BSPC        &kp PLUS   &kp N4    &kp N5    &kp N6    &kp SLASH
                 &trans    &kp ESC   &kp TAB   &kp RET   &trans          &kp KP_NUM &kp N1    &kp N2    &kp N3    &trans
-                                    &trans    &trans    &trans          &kp N0     LT_NV_DOT &trans
+                                    &trans    &trans    &trans          &kp N0     LT_NV_DOT &to DEF_L
             >;
         };
 
@@ -193,7 +203,7 @@ NUMBER
  ___    ___    ___    ___    DEL           -       7       8       9       *
  ___    ___    ___    ___    BSPC          +       4       5       6       /
  ___    ESC    TAB    ENT    ___          CNUM     1       2       3      ___
-               ___    ___    ___           0     NAV(.)   ___
+               ___    ___    ___           0     NAV(.)   DEF
 
 FUNCTION
 
