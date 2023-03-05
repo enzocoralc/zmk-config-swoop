@@ -87,10 +87,10 @@
         compatible = "zmk,keymap";
 
 /*
-  W     C     G   RA(D)     K            Q     RA(L)   U     O     Y
-LG(R) LC(S) LS(T) LA(H)     B            J     LA(N) RS(E) RC(A) RG(I)
-  Z     F     M     P       V            X       ,     .     '     /
-             FUN   SPC     NUM          NAV     ENT   SYM
+  W       C       G     RA(D)     K            Q     RA(L)     U       O       Y
+LG(R)   LC(S)   LS(T)   LA(H)     B            J     LA(N)   RS(E)   RC(A)   RG(I)
+  Z       F       M       P       V            X       ,       .       '       /
+                 FUN     SPC     NUM          NAV     ENT     SYM
 */
 
         default_layer {
@@ -105,8 +105,8 @@ LG(R) LC(S) LS(T) LA(H)     B            J     LA(N) RS(E) RC(A) RG(I)
 /*
  ESC  HOME   ENT  LC(TAB)  PGUP         DEL     PLAY   VOL+   LA(F4)  INS
  <-    UP    DN     ->     PGDN         BSPC    MUTE   VOL-   LC(F4)  SCST
- TOP  END    TAB  LA(TAB)  BOTTOM       CLCK     ESC    TAB    ENT    ___ 
-             ___  NUM(DEL)  BSPC        ___   ___   ___
+ TOP  END    TAB  LA(TAB)  BOTTOM       CLCK    ESC    TAB    ENT    ___ 
+             ___  NUM(DEL) BSPC         ___     ___    ___
 */
 
         navigation_layer {
@@ -120,10 +120,10 @@ LG(R) LC(S) LS(T) LA(H)     B            J     LA(N) RS(E) RC(A) RG(I)
         };
 
 /*
- ___   ___   ___   ___     DEL           -       7       8       9       *
- ___   ___   ___   ___     BSPC          +       4       5       6       /
- ___   ESC   TAB   ENT     ___          CNUM     1       2       3      ___
-               ___   ___   ___           0     NAV(.)   ___
+ ___    ___    ___    ___    DEL           -       7       8       9       *
+ ___    ___    ___    ___    BSPC          +       4       5       6       /
+ ___    ESC    TAB    ENT    ___          CNUM     1       2       3      ___
+               ___    ___    ___           0     NAV(.)   ___
 */
 
         number_layer {
@@ -137,10 +137,10 @@ LG(R) LC(S) LS(T) LA(H)     B            J     LA(N) RS(E) RC(A) RG(I)
         };
 
 /*
-F11    F12    F13    F14    F15      BT1     BT2     BT3     BT4     BT5
-F6     F7     F8     F9     F10      DEL     CTL     ALT     ___     bootloader
-F1     F2     F3     F4     F5       ___     PLAY    <<       >>     BTCLEAR
-               ___   ___   ___       ___   ___   ___ 
+F11    F12    F13    F14    F15      BT1    BT2    BT3    BT4    BT5
+F6     F7     F8     F9     F10      DEL    CTL    ALT    ___    bootloader
+F1     F2     F3     F4     F5       ___    PLAY   <<      >>    BTCLEAR
+              ___    ___    ___      ___    ___    ___ 
 */
 
         function_layer {
@@ -172,3 +172,40 @@ F1     F2     F3     F4     F5       ___     PLAY    <<       >>     BTCLEAR
 
     };
 };
+
+/*
+BASE
+
+  W       C       G     RA(D)     K            Q     RA(L)     U       O       Y
+LG(R)   LC(S)   LS(T)   LA(H)     B            J     LA(N)   RS(E)   RC(A)   RG(I)
+  Z       F       M       P       V            X       ,       .       '       /
+                 FUN     SPC     NUM          NAV     ENT     SYM
+
+NAVIGATION
+
+ ESC  HOME   ENT  LC(TAB)  PGUP         DEL     PLAY   VOL+   LA(F4)  INS
+ <-    UP    DN     ->     PGDN         BSPC    MUTE   VOL-   LC(F4)  SCST
+ TOP  END    TAB  LA(TAB)  BOTTOM       CLCK    ESC    TAB    ENT    ___ 
+             ___  NUM(DEL) BSPC         ___     ___    ___
+
+NUMBER
+
+ ___    ___    ___    ___    DEL           -       7       8       9       *
+ ___    ___    ___    ___    BSPC          +       4       5       6       /
+ ___    ESC    TAB    ENT    ___          CNUM     1       2       3      ___
+               ___    ___    ___           0     NAV(.)   ___
+
+FUNCTION
+
+F11    F12    F13    F14    F15      BT1    BT2    BT3    BT4    BT5
+F6     F7     F8     F9     F10      DEL    CTL    ALT    ___    bootloader
+F1     F2     F3     F4     F5       ___    PLAY   <<      >>    BTCLEAR
+              ___    ___    ___      ___    ___    ___ 
+
+SYMBOLS
+
+{     }     [     ]     +         `     -     _     \     |
+!     @     #     $     %         ^     :     ;     '     "
+&     *     (     )     =         ~     <     >     /     ?
+            ¡     ñ     ¿        ___   ___   ___ 
+*/
