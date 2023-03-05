@@ -49,12 +49,11 @@
             bindings = <&kp>, <&kp>;
         };
         num: num {
-        label = "tap-dance-num";
-        #binding-cells = <0>;
-        compatible = "zmk,behavior-tap-dance";
-        bindings = &mo NUM_L, &tog NUM_L;
-        tapping-term-ms = <TAPPING_TERM>;
-        };
+            label = "tap-dance-num";
+            #binding-cells = <0>;
+            compatible = "zmk,behavior-tap-dance";
+            bindings = <&mo NUM_L>, <&tog NUM_L>;
+            tapping-term-ms = <TAPPING_TERM>;
     };
 };
 
